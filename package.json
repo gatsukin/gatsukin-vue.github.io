@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "watch": "concurrently --kill-others  \"npm run gulp\" \"npm run serve\"",
-    "serve": "vue-cli-service serve --watch --mode production",
+    "serve": "vue-cli-service serve --watch --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "gulp": "gulp serve --dev"

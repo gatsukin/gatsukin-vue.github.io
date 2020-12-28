@@ -23,7 +23,6 @@ const dirFonts = '/fonts'
 const dirAssets = '/assets'
 const dirImg = '/img'
 const dirJs = `/js`
-const dirSwiper = `/js/swiper`
 const dirLib = `/lib`
 const dirPages = `/pages`
 const dirViews = `/views`
@@ -36,7 +35,6 @@ const dirs = {
     html: `${dirDist}`,
     css: `${dirDist}${dirAssets}${dirCss}`,
     js: `${dirDist}${dirAssets}${dirJs}`,
-    jsSwiper: `${dirDist}${dirAssets}${dirSwiper}`,
     jslib: `${dirDist}${dirAssets}${dirJs}${dirLib}`,
     img: `${dirDist}${dirAssets}${dirImg}`,
     fonts: `${dirDist}${dirAssets}${dirFonts}`
@@ -58,7 +56,6 @@ const dirs = {
     js: [
       `${dirSrc}${dirAssets}${dirJs}/*.js`,
     ],
-    jsSwiper: `${dirSrc}${dirAssets}${dirSwiper}/*.js`,
     vendorStyle: `${dirSrc}${dirAssets}${dirCss}/**/*.js`,
     vendorJs: [
       `${dirSrc}${dirAssets}${dirJs}${dirLib}/**/*.js`
@@ -73,7 +70,6 @@ const dirs = {
     img: `${dirSrc}${dirAssets}${dirImg}/**`,
     js: `${dirSrc}${dirAssets}${dirJs}/**/*.js`,
     jslib: `${dirSrc}${dirAssets}${dirJs}${dirLib}/**/*.js`,
-    jsSwiper: `${dirSrc}${dirAssets}${dirSwiper}/*.js`,
   }
 }
 
@@ -88,7 +84,6 @@ module.exports = {
   dirAssets,
   dirJs,
   dirViews,
-  dirSwiper,
   dirTemplates,
   dirPages,
   dirIncludes,

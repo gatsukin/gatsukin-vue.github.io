@@ -27,9 +27,6 @@ const {
 const {
   buildImg
 } = require('./tasks/build-img.js')
-const {
-  buildSwiper
-} = require('./tasks/build-swiper.js')
 
 const {
   dirDist,
@@ -44,7 +41,6 @@ const stakeOut = () => {
   watch(dirs.watch.less, buildLess).on('change', browserSync.reload)
   watch(dirs.watch.img, buildImg).on('change', browserSync.reload)
   watch(dirs.watch.js, buildJs).on('change', browserSync.reload)
-  watch(dirs.watch.jsSwiper, buildSwiper).on('change', browserSync.reload)
 }
 
 const serve = () => {
@@ -63,8 +59,7 @@ const buildAssets = series(
     buildFonts,
     buildImg,
     buildLess,
-    buildJs,
-    buildSwiper
+    buildJs
   )
 )
 const build = series(buildAssets, buildHtml)
@@ -74,7 +69,6 @@ const buildProd = series(buildAssets, buildHtml, buildHtmlWait)
 exports.clear = clearDir
 exports.fonts = buildFonts
 exports.js = buildJs
-exports.jsSwiper = buildSwiper
 exports.approved = build
 exports.build = buildProd
 exports.buildWait = buildWait
