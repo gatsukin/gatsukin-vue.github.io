@@ -13,4 +13,5 @@ app.component('hello-world', HelloWorld)
 app.component('nav-bar', NavBar)
 app.component('profile-modal', ProfileModal)
 
+app.config.devtools = true
 app.mount('#app')

@@ -2,7 +2,7 @@
   <div :class="['modal', { open: open }]">
     <div class="modal-overlay">
       <div class="modal-content">
-        <button class="modal-close" @click="open = false">x</button>
+        <button class="modal-close" @click="CloseModalProfile()">x</button>
         <div class="profile-modal">
           <h3>Profile</h3>
 
@@ -36,11 +36,26 @@
 </template>
 <script>
 export default {
-  props: [],
+  props: ["openProfile"],
   data() {
     return {
-      open: true,
+      open: false,
     };
+  },
+  watch: {
+    openProfile: function() {
+      if (this.openProfile == true) {
+        this.open = true;
+      } else {
+        this.open = false;
+      }
+    },
+  },
+  methods: {
+    CloseModalProfile() {
+      this.$emit("closeProfile", false);
+      console.log("closed");
+    },
   },
 };
 </script>

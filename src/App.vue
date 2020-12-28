@@ -1,7 +1,10 @@
 <template>
-  <nav-bar @listetModalProfile="openModalProfile" />
+  <nav-bar @openModalProfileEvent="listenModalProfile" />
   <hello-world />
-  <profile-modal :openProfile="openProfile" />
+  <profile-modal
+    :openProfile="this.openProfile"
+    @closeProfile="listenCloseProfile"
+  />
 </template>
 <script>
 export default {
@@ -11,7 +14,12 @@ export default {
     };
   },
   methods: {
-    listetModalProfile() {},
+    listenModalProfile() {
+      this.openProfile = true;
+    },
+    listenCloseProfile() {
+      this.openProfile = false;
+    },
   },
 };
 </script>

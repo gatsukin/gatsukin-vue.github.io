@@ -5,7 +5,7 @@
     </a>
     <ul>
       <li>
-        <button @click="openModalProfile()">
+        <button @click="ProfileListen()">
           <svg
             height="512pt"
             viewBox="0 0 512 512"
@@ -47,11 +47,14 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      openModalProfile: true,
+    };
   },
   methods: {
-    openModalProfile() {
-      this.$emit("openModalProfile", true);
+    ProfileListen() {
+      this.$emit("openModalProfileEvent", this.openModalProfile);
+      console.log("Send data" + this.openModalProfile);
     },
   },
 };
