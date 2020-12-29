@@ -1,69 +1,13 @@
-@import "var.less";
-@import "fonts.less";
-@import "modal.less";
+// vars
+@import "var/theme";
+@import "var/var";
+@import "var/fonts";
+@import "var/animation";
+// Elements
+@import "elements/navbar";
+@import "elements/modal";
+@import "elements/settings";
+// Sections
+@import "section/welcome";
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-a {
-    text-decoration: none;
-}
-b {
-    font-family: @FFRBold;
-    font-weight: normal;
-}
-button {
-    cursor: pointer;
-    transition: all .2s;
-    border: none;
-    outline: none;
-    background: none;
-}
-html {
-    color: @gray;
-    font-family: @FFRLight;
-    font-size: 20px;
-}
 
-section {
-    min-height: 100vh;
-    max-height: 100vh;
-}
-
-@import "welcome";
-@import "navbar";
-@import "settings";
-
-.bounce-enter-active {
-    animation: bounce-in .3s;
-}
-.bounce-leave-active {
-    animation: bounce-in .3s reverse;
-}
-@keyframes bounce-in {
-    0% {
-        transform: scale(.2);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.fade-enter-active {
-    animation: fade-in .3s;
-}
-.fade-leave-active {
-    animation: fade-in .3s reverse;
-}
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}

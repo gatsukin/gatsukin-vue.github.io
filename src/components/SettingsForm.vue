@@ -21,7 +21,7 @@
       <label class="placeholder">Age</label>
     </div>
     <div class="settings__box">
-      <span class="checkbox-name">Gender</span>
+      <span class="checkbox-name">Gender:</span>
       <div class="checkbox-choose">
         <label class="checkbox-label">
           <input
