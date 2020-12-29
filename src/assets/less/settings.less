@@ -1,0 +1,139 @@
+.settings {
+    display: flex;
+    flex-direction: column;
+    &__box {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+
+        input {
+            &[type="text"], &[type="number"] {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-bottom: 1px solid #CCC;
+                font: .9rem/105% @FFRLight;
+                font-size: .8rem;
+            }
+            &[type="number"] {
+                appearance: textfield;
+
+                &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+                    display: none;
+                }
+            }
+            &:focus {
+                outline: none;
+            }
+            &:not([type="checkbox"]) {
+                &:focus, &:valid {
+                    ~ label.placeholder {
+                        top: -15px;
+                        color: #5264AE;
+                        font-size: .7rem;
+                    }
+                }
+                /* active state */
+                &:focus ~ .bar {
+                    &:before, &:after {
+                        width: 50%;
+                    }
+                }
+            }
+        }
+
+        /* LABEL ======================================= */
+        label.placeholder {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            transition: .2s ease all;
+            pointer-events: none;
+            color: #999;
+            font: .9rem/105% @FFRLight;
+        }
+
+        /* BOTTOM BARS ================================= */
+        .bar {
+            position: relative;
+            display: block;
+            width: 100%;
+            &:before, &:after {
+                position: absolute;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                content: "";
+                transition: .2s ease all;
+                background: #5264AE;
+            }
+            &:before {
+                left: 50%;
+            }
+            &:after {
+                right: 50%;
+            }
+        }
+
+        .checkbox {
+            &-label {
+                cursor: pointer;
+                div {
+                    position: relative;
+                    &:before {
+                        position: absolute;
+                        bottom: -2px;
+                        left: 50%;
+                        width: 0;
+                        height: 1px;
+                        content: "";
+                        transition: .3s ease-in-out;
+                        background-color: @gray;
+                    }
+                }
+                input:checked {
+                    ~ div::before {
+                        left: 0;
+                        width: 100%;
+                    }
+                }
+            }
+            &-name {
+                padding-left: 10px;
+                color: #999;
+                font: .9rem/105% @FFRLight;
+            }
+            &-choose {
+                display: flex;
+                flex-direction: row;
+                margin: 15px 0 0;
+                padding: 0 10px;
+                label {
+                    margin-right: 5%;
+                }
+            }
+        }
+    }
+    &__save {
+        display: flex;
+        justify-content: center;
+        input {
+            min-width: 150px;
+            padding: 10px 30px;
+            transition: .2s linear;
+            color: @white;
+            border-radius: 10px;
+            outline: none;
+            background-color: @gray;
+            font: 1.25rem/105% @FFRBold;
+            &:focus, &:hover {
+                box-shadow: 0 0 10px 2px rgba(@black, 40%);
+            }
+            &:active {
+                transform: scale(.95);
+            }
+        }
+    }
+}

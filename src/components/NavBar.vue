@@ -19,7 +19,7 @@
         </button>
       </li>
       <li>
-        <button>
+        <button @click="SettingsListen()">
           <svg
             id="Layer_1"
             enable-background="new 0 0 24 24"
@@ -47,14 +47,16 @@
 <script>
 export default {
   data() {
-    return {
-      openModalProfile: true,
-    };
+    return {};
   },
   methods: {
     ProfileListen() {
       this.$emit("openModalProfileEvent", this.openModalProfile);
-      console.log("Send data" + this.openModalProfile);
+      console.log("Opening profile modal...");
+    },
+    SettingsListen() {
+      this.$emit("openModalSettingsEvent", this.openModalSettings);
+      console.log("Opening ettings modal...");
     },
   },
 };
