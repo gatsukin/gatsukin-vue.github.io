@@ -11,14 +11,16 @@
       <label class="placeholder">Name / Nickname</label>
     </div>
     <div class="settings__box">
-      <input
-        type="number"
-        required
-        v-model="UserInfo.age"
-        @keypress.enter="checkForm"
-      />
-      <span class="bar"></span>
-      <label class="placeholder">Age</label>
+      <div class="settings__box--line">
+        <span class="checkbox-name">Age:</span>
+        <input
+          type="number"
+          required
+          v-model="UserInfo.age"
+          @keypress.enter="checkForm"
+        />
+      </div>
+      <input type="range" min="0" max="100" step="1" v-model="UserInfo.age" />
     </div>
     <div class="settings__box">
       <span class="checkbox-name">Gender:</span>

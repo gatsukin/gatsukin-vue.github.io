@@ -4,7 +4,7 @@ import {
 import App from "./App.vue"
 // import router from "./router";
 
-import HelloWorld from './components/HelloWorld'
+import HelloWorld from './views/HelloWorld'
 import NavBar from './components/NavBar'
 import ProfileModal from './components/modal/ProfileModal'
 import SettingsModal from './components/modal/SettingsModal'

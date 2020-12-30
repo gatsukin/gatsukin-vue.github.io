@@ -19,6 +19,29 @@
         </button>
       </li>
       <li>
+        <button @click="ChangeMode()">
+          <div class="toggle">
+            <div class="mask">
+              <div :class="['icon-wrap', darkmode ? 'active' : '']">
+                <div class="icon sun"></div>
+              </div>
+              <div :class="['icon-wrap', darkmode ? '' : 'active']">
+                <svg
+                  copy="icon"
+                  data-name="Layer 1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 300 300"
+                >
+                  <path
+                    d="M187.73 151.4c0-55.24 29.34-104.19 76.27-129.72C242.21 9.81 216.56 3 188.15 3 99.15 3 36.2 70.46 36.2 151.4S98.3 299 187.33 299c28.26 0 53.87-6.82 75.69-18.69-46.48-25.31-75.29-73.8-75.29-128.91z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </button>
+      </li>
+      <li>
         <button @click="SettingsListen()">
           <svg
             id="Layer_1"
@@ -46,17 +69,33 @@
 </template>
 <script>
 export default {
+  props: ["darkModeDefault"],
   data() {
-    return {};
+    return {
+      darkmode: this.darkModeDefault,
+    };
   },
   methods: {
+    ChangeMode() {
+      console.log("Changing mode");
+      let icon = document.querySelectorAll(".icon-wrap");
+      if (this.darkmode == true) {
+        this.darkmode = false;
+      } else {
+        this.darkmode = true;
+      }
+      for (let i = 0; i < icon.length; i++) {
+        icon[i].classList.toggle("active");
+      }
+      this.$emit("changeModeEvent", this.darkmode);
+    },
     ProfileListen() {
       this.$emit("openModalProfileEvent", this.openModalProfile);
       console.log("Opening profile modal...");
     },
     SettingsListen() {
       this.$emit("openModalSettingsEvent", this.openModalSettings);
-      console.log("Opening ettings modal...");
+      console.log("Opening settings modal...");
     },
   },
 };

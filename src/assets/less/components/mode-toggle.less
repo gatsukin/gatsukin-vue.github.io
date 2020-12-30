@@ -1,0 +1,50 @@
+@size: 30px;
+.toggle {
+    position: relative;
+    left: 0;
+    width: @size;
+
+    .mask {
+        overflow: hidden;
+        width: @size;
+        height: @size;
+
+
+        .icon {
+            width: @size;
+            height: @size;
+            border-radius: 50%;
+            &-wrap {
+                padding: 0;
+                transition: all 300ms 400ms ease;
+
+                &:last-child {
+                    transform: translatey(-@size);
+                    opacity: 1;
+                }
+            }
+        }
+
+        .active {
+            transition-delay: 100ms;
+
+            &:first-child {
+                transform: translatey(@size);
+                opacity: 0;
+            }
+
+            &:last-child {
+                transform: translatey(0);
+                opacity: 0;
+            }
+        }
+
+        .sun {
+            background-color: @white;
+        }
+
+        .moon {
+            background-color: @white;
+        }
+    }
+}

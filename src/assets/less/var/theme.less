@@ -3,21 +3,19 @@
     --black:  #000;
     --white:  #FFF;
     --redError: rgb(197, 70, 70);
-    .darkmode {
-        --bg: #1B1A1D;
-        --text: rgb(219, 219, 219);
-        --blue:#94a8f9;
-    }
-    .lightmode {
-        --bg: #FFF;
-        --text: #3E3E3E;
-        --blue: #5264AE;
-    }
-
-    .darkmode, .lightmode {
-        color: @mText;
-    }
 };
+
+[data-app-theme="dark"] {
+    --bg: #282C34;
+    --text: rgb(219, 219, 219);
+    --blue:#94a8f9;
+}
+
+[data-app-theme="light"] {
+    --bg: #FFF;
+    --text: #3E3E3E;
+    --blue: #5264AE;
+}
 
 @black: var(--black);
 @white: var(--white);
@@ -27,3 +25,7 @@
 @mInputBlue: var(--blue);
 @mBg: var(--bg);
 @mText: var(--text);
+
+html {
+    color: @mText;
+}
