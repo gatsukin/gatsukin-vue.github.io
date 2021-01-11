@@ -3,8 +3,9 @@
     position: relative;
     display: flex;
     overflow: hidden;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
     text-align: center;
     color: @black;
     background-image: url(/assets/img/background/w-bg-m.png );
@@ -38,10 +39,13 @@
         position: relative;
         display: flex;
         width: auto;
-        margin: 10% auto;
+        margin: 10% auto 5%;
         padding: 20px 30px;
-        animation: typing 3.5s steps(50, end);
         color: @mText;
+
+        &.animation {
+            animation: typing 3.5s steps(50, end);
+        }
         span {
             position: relative;
             z-index: 10;
@@ -61,6 +65,15 @@
             content: "";
             opacity: .15;
             background-color: @mBg;
+        }
+    }
+    &__help {
+        display: flex;
+        transition: 1s;
+        opacity: 0;
+        font-size: 1.5rem;
+        &.visible {
+            opacity: 1;
         }
     }
 }

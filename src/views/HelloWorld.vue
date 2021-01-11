@@ -1,7 +1,10 @@
 <template>
   <section class="welcome">
-    <div class="welcome__text">
+    <div class="welcome__text animation">
       <span> Hello, {{ welcome.prefix }} {{ welcome.name }}! </span>
+    </div>
+    <div class="welcome__help" v-if="!this.user.name">
+      <span>Please, fill name in settings for next step.</span>
     </div>
   </section>
 </template>
@@ -19,14 +22,17 @@ export default {
   watch: {
     user: function() {
       this.startedUser(this.user);
+      let text = document.querySelector(".welcome__text");
+      text.classList.toggle("animation");
+      setTimeout(() => text.classList.toggle("animation"), 10);
     },
   },
   mounted() {
     this.startedUser();
+    this.emptyName();
   },
   methods: {
     startedUser() {
-      console.log(this.user);
       if (this.user.name) {
         this.welcome.name = this.user.name;
       } else {
@@ -37,6 +43,10 @@ export default {
       } else {
         this.welcome.prefix = "Mr.";
       }
+    },
+    emptyName() {
+      var helpBlock = document.querySelector(".welcome__help");
+      setTimeout(() => helpBlock.classList.toggle("visible"), 3000);
     },
   },
 };
