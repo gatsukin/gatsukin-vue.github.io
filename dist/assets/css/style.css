@@ -364,7 +364,7 @@ nav svg {
   width: 15px;
   height: 15px;
   transition: 0.3s;
-  fill: var(--black);
+  fill: var(--text);
 }
 .modal-close:hover svg {
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
@@ -675,6 +675,12 @@ nav svg {
   color: var(--text);
   font-size: 2rem;
 }
+@media screen and (max-width: 575px) {
+  .welcome__text {
+    padding: 10px 15px;
+    font-size: 1.5rem;
+  }
+}
 .welcome__text span {
   position: relative;
   z-index: 10;
@@ -699,7 +705,33 @@ nav svg {
   opacity: 0;
   font-size: 1.5rem;
 }
+@media screen and (max-width: 575px) {
+  .welcome__help {
+    font-size: 1rem;
+  }
+}
 .welcome__help.visible {
+  opacity: 1;
+}
+.welcome__thanks {
+  visibility: hidden;
+  padding: 5px 10px;
+  transition: 0.3s;
+  opacity: 0;
+  color: inherit;
+  border-radius: 5px;
+  background-color: var(--bg);
+  font-size: 1rem;
+}
+.welcome__thanks:hover,
+.welcome__thanks:focus {
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.5);
+}
+.welcome__thanks:active {
+  transform: scale(0.97);
+}
+.welcome__thanks.visible {
+  visibility: visible;
   opacity: 1;
 }
 .about {
@@ -767,4 +799,52 @@ nav svg {
   .about__text {
     width: 100%;
   }
+}
+.thanks {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+.thanks::before {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  opacity: 0.6;
+  border-radius: 10px;
+  background-color: var(--bg);
+}
+.thanks__text,
+.thanks__image {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+}
+.thanks__image svg {
+  display: block;
+  max-width: 70%;
+  margin: 0 auto;
+}
+.thanks__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 30px;
+  text-align: center;
+}
+.thanks__text h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font: 1.5rem/105% "Roboto-Bold";
+  font-weight: normal;
+}
+.thanks__text p {
+  font-size: 1rem;
 }

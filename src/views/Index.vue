@@ -3,9 +3,12 @@
     <div class="welcome__text animation">
       <span id="hello"></span>
     </div>
-    <div class="welcome__help" v-if="!this.user.name">
+    <div class="welcome__help" v-if="0">
       <span>Please, fill name in settings for next step.</span>
     </div>
+    <router-link to="/thanks" class="welcome__thanks">
+      Appreciation
+    </router-link>
   </section>
 </template>
 <script>
@@ -45,7 +48,7 @@ export default {
       }
     },
     emptyName() {
-      var helpBlock = document.querySelector(".welcome__help");
+      var helpBlock = document.querySelector(".welcome__thanks");
       setTimeout(() => helpBlock.classList.toggle("visible"), 3000);
     },
     helloUser(e) {
