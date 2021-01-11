@@ -2,10 +2,10 @@
   <nav class="navbar">
     <div class="menu">
       <router-link to="/" class="logo">
-        Главная
+        Main
       </router-link>
       <router-link to="/about" class="logo">
-        Обо мне
+        About
       </router-link>
     </div>
     <ul>
