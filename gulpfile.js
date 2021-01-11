@@ -16,9 +16,6 @@ const {
   buildHtml
 } = require('./tasks/build-html.js')
 const {
-  buildHtmlWait
-} = require('./tasks/build-wait-html.js')
-const {
   buildJs
 } = require('./tasks/build-js.js')
 const {
@@ -62,15 +59,25 @@ const buildAssets = series(
     buildJs
   )
 )
+const buildAssetsProd = series(
+  clearDir,
+  parallel(
+    buildFonts,
+    buildImg,
+    buildLess,
+    buildJs
+  )
+)
+
 const build = series(buildAssets, buildHtml)
-const buildWait = series(buildAssets, buildHtmlWait)
-const buildProd = series(buildAssets, buildHtml, buildHtmlWait)
+const buildWait = series(buildAssets)
+const buildProd = series(buildAssetsProd, buildHtml)
 
 exports.clear = clearDir
 exports.fonts = buildFonts
 exports.js = buildJs
 exports.approved = build
-exports.build = buildProd
-exports.buildWait = buildWait
+exports.build = build
+exports.buildProd = buildProd
 exports.serve = series(build, serve)
 exports.default = series(buildWait, stakeOut)
