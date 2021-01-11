@@ -103,7 +103,7 @@ html {
   transform-origin: bottom;
   animation: skySpin 20s infinite;
   background-image: url(/assets/img/background/w-bg-sky.jpg);
-  background-size: 100%;
+  background-size: cover;
 }
 .main .overflow {
   display: flex;
@@ -758,8 +758,11 @@ nav svg {
   }
 }
 @media screen and (max-width: 575px) {
+  .about {
+    flex-direction: column;
+  }
   .about__image {
-    display: none;
+    width: 100%;
   }
   .about__text {
     width: 100%;
