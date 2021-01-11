@@ -46,6 +46,19 @@
         right: 0;
         padding: 15px;
         font-size: 1rem;
+        svg {
+            width: 15px;
+            height: 15px;
+            transition: .3s;
+
+            fill: @black;
+        }
+
+        &:hover {
+            svg {
+                filter: drop-shadow(0 0 5px rgba(0,0,0,.5));
+            }
+        }
     }
 }
 

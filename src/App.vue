@@ -7,7 +7,7 @@
     :darkModeDefault="darkModeDefault"
   />
   <!-- Страница -->
-  <hello-world :user="this.user" />
+  <main-page :user="this.user" />
   <!-- Модалки -->
   <transition name="bounce">
     <profile-modal

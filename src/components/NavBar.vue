@@ -1,8 +1,13 @@
 <template>
   <nav class="navbar">
-    <a href="#" class="logo">
-      Kotu Danov
-    </a>
+    <div class="menu">
+      <router-link to="/" class="logo">
+        Главная
+      </router-link>
+      <router-link to="/about" class="logo">
+        Обо мне
+      </router-link>
+    </div>
     <ul>
       <li>
         <button @click="ProfileListen()">

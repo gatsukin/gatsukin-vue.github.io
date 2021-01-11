@@ -21,10 +21,21 @@ nav {
         opacity: .2;
         background-color: @mBg;
     }
-    .logo {
+    .menu {
         z-index: 15;
+        display: flex;
+        flex-direction: row;
         color: @white;
         font: 1rem/100% @FFRMediumItalic;
+        a {
+            z-index: 15;
+            display: flex;
+            margin-left: 15px;
+            color: inherit;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
     }
 
     ul {
@@ -42,12 +53,16 @@ nav {
             &:last-child {
                 margin-right: 0;
             }
+            @media screen and (max-width: 575px) {
+                margin: 0 10px;
+            }
         }
     }
 
     button {
+        transition: .3s;
         &:hover {
-            filter: drop-shadow(0 0 2px rgba(@white, 30%));
+            filter: drop-shadow(0 0 2px rgba(0,0,0, 30%));
         }
     }
 
@@ -55,6 +70,6 @@ nav {
         width: 30px;
         height: 30px;
 
-        fill: white;
+        fill: @white;
     }
 }

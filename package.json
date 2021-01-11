@@ -28,6 +28,7 @@
     "lodash": "^4.17.20",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
+    "vue-typed-js": "^0.1.2",
     "yargs": "^16.2.0"
   },
   "devDependencies": {

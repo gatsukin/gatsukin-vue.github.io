@@ -1,7 +1,7 @@
 <template>
   <section class="welcome">
     <div class="welcome__text animation">
-      <span> Hello, {{ welcome.prefix }} {{ welcome.name }}! </span>
+      <span id="hello"></span>
     </div>
     <div class="welcome__help" v-if="!this.user.name">
       <span>Please, fill name in settings for next step.</span>
@@ -9,6 +9,7 @@
   </section>
 </template>
 <script>
+import Typed from "typed.js";
 export default {
   props: ["user"],
   data() {
@@ -22,14 +23,13 @@ export default {
   watch: {
     user: function() {
       this.startedUser(this.user);
-      let text = document.querySelector(".welcome__text");
-      text.classList.toggle("animation");
-      setTimeout(() => text.classList.toggle("animation"), 10);
+      this.helloUser(this.welcome);
     },
   },
   mounted() {
     this.startedUser();
     this.emptyName();
+    this.helloUser(this.welcome);
   },
   methods: {
     startedUser() {
@@ -47,6 +47,15 @@ export default {
     emptyName() {
       var helpBlock = document.querySelector(".welcome__help");
       setTimeout(() => helpBlock.classList.toggle("visible"), 3000);
+    },
+    helloUser(e) {
+      let option = {
+        strings: [`Hello, ${e.prefix} ${e.name}!`],
+        typeSpeed: 30,
+        showCursor: false,
+      };
+      new Typed("#hello", option).destroy();
+      new Typed("#hello", option);
     },
   },
 };
