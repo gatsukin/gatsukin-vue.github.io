@@ -88,7 +88,11 @@
     </div>
     <div class="thanks__text">
       <h2>Thank you!</h2>
-      <p>Thanks my dear <b>Lizeha</b>!!!</p>
+      <p>
+        Thanks my dear <b>Lizeha</b>!!!
+        <br />
+        I love you
+      </p>
     </div>
   </div>
 </template>
