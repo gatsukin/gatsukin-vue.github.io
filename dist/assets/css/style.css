@@ -553,7 +553,7 @@ nav svg {
 }
 .toggle .mask .icon-wrap {
   padding: 0;
-  transition: all 300ms 400ms ease;
+  transition: all 350ms 400ms ease;
 }
 .toggle .mask .icon-wrap:last-child {
   transform: translatey(-30px);
