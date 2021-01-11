@@ -64,10 +64,11 @@ html {
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    min-height: 100vh;
-    max-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+    max-height: calc(var(--vh, 1vh) * 100);
     background-image: url(/assets/img/background/w-bg-m.png );
     background-size: cover;
+;;
     &::before {
         position: absolute;
         z-index: -1;

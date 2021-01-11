@@ -48,6 +48,7 @@ export default {
   },
   mounted() {
     this.changeMode(this.darkModeDefault);
+    this.newVhVar();
   },
   methods: {
     // Модалка профиля
@@ -77,6 +78,14 @@ export default {
         localStorage.setItem("data-app-theme", "light");
         htmlElement.setAttribute("data-app-theme", "light");
       }
+    },
+    newVhVar() {
+      function setHeight() {
+        var vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+      }
+      setHeight();
+      window.addEventListener("resize", setHeight);
     },
   },
 };
