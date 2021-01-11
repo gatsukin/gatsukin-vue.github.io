@@ -23,6 +23,24 @@ html {
   margin: 0;
   padding: 0;
 }
+* {
+  scrollbar-color: #E4445A #272D41;
+  scrollbar-width: thin;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: rgba(39, 45, 65, 0.9);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(130deg, #E4445A 30.22%, #F28B5E 98.27%);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+*::-webkit-scrollbar-thumb:window-inactive {
+  background: linear-gradient(130deg, rgba(228, 68, 90, 0.6) 30.22%, rgba(242, 139, 94, 0.6) 98.27%);
+}
 a {
   text-decoration: none;
 }
@@ -40,11 +58,63 @@ button {
 }
 html {
   font-family: "Roboto-Light";
-  font-size: 20px;
 }
-section {
+@media screen and (min-width: 1400px) {
+  html {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1399px) and (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 767px) and (min-width: 450px) {
+  html {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 449px) {
+  html {
+    font-size: 16px;
+  }
+}
+.main {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
   min-height: 100vh;
   max-height: 100vh;
+  background-image: url(/assets/img/background/w-bg-m.png );
+  background-size: cover;
+}
+.main::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  transform-origin: bottom;
+  animation: skySpin 20s infinite;
+  background-image: url(/assets/img/background/w-bg-sky.jpg);
+  background-size: 100%;
+}
+.main .overflow {
+  display: flex;
+  overflow: auto;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 60px;
+  padding: 20px 20px;
 }
 @font-face {
   font-family: "Roboto-Regular";
@@ -124,24 +194,6 @@ section {
     transform: scale(1.3) rotate(0deg);
   }
 }
-/* The typing effect */
-@keyframes typing {
-  from {
-    max-width: 0;
-  }
-  to {
-    max-width: 100%;
-  }
-}
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: orange;
-  }
-}
 .bounce-enter-active {
   animation: bounce-in 0.3s;
 }
@@ -210,10 +262,21 @@ nav::before {
   opacity: 0.2;
   background-color: var(--bg);
 }
-nav .logo {
+nav .menu {
   z-index: 15;
+  display: flex;
+  flex-direction: row;
   color: var(--white);
   font: 1rem/100% "Roboto-MediumItalic";
+}
+nav .menu a {
+  z-index: 15;
+  display: flex;
+  margin-left: 15px;
+  color: inherit;
+}
+nav .menu a:first-child {
+  margin-left: 0;
 }
 nav ul {
   z-index: 15;
@@ -232,13 +295,21 @@ nav ul li:first-child {
 nav ul li:last-child {
   margin-right: 0;
 }
+@media screen and (max-width: 575px) {
+  nav ul li {
+    margin: 0 10px;
+  }
+}
+nav button {
+  transition: 0.3s;
+}
 nav button:hover {
-  filter: drop-shadow(0 0 2px rgba(var(--white), 30%));
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
 }
 nav svg {
   width: 30px;
   height: 30px;
-  fill: white;
+  fill: var(--white);
 }
 .modal {
   position: absolute;
@@ -288,6 +359,15 @@ nav svg {
   right: 0;
   padding: 15px;
   font-size: 1rem;
+}
+.modal-close svg {
+  width: 15px;
+  height: 15px;
+  transition: 0.3s;
+  fill: var(--black);
+}
+.modal-close:hover svg {
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
 }
 .profile-modal--error {
   margin: 30px 0;
@@ -577,58 +657,29 @@ nav svg {
   background-color: var(--white);
 }
 .welcome {
-  position: relative;
   display: flex;
-  overflow: hidden;
   align-items: center;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  margin-bottom: 55vh;
   text-align: center;
   color: var(--black);
-  background-image: url(/assets/img/background/w-bg-m.png );
-  background-size: cover;
   font-size: 2rem;
-}
-.welcome::before {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-  animation: skySpin 20s infinite;
-  background-image: url(/assets/img/background/w-bg-sky.jpg);
-  background-size: 100%;
-}
-.welcome::after {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-  animation: blurJoin 2s;
 }
 .welcome__text {
   position: relative;
   display: flex;
   width: auto;
-  margin: 10% auto 5%;
+  margin: 5% auto;
   padding: 20px 30px;
   color: var(--text);
-}
-.welcome__text.animation {
-  animation: typing 3.5s steps(50, end);
+  font-size: 2rem;
 }
 .welcome__text span {
   position: relative;
   z-index: 10;
   overflow: hidden;
-  animation: blink-caret 0.5s step-end infinite;
   white-space: nowrap;
-  border-right: 3px solid orange;
   font-family: monospace;
 }
 .welcome__text::before {
@@ -650,4 +701,67 @@ nav svg {
 }
 .welcome__help.visible {
   opacity: 1;
+}
+.about {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1000px;
+  padding: 20px;
+}
+.about::before {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  opacity: 0.6;
+  border-radius: 10px;
+  background-color: var(--bg);
+}
+.about__text,
+.about__image {
+  position: relative;
+  z-index: 3;
+}
+.about__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+}
+.about__image img {
+  width: 100%;
+}
+.about__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 65%;
+}
+.about__text h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font: 1.5rem/105% "Roboto-Bold";
+  font-weight: normal;
+}
+.about__text p {
+  font-size: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .about__image,
+  .about__text {
+    width: 49%;
+  }
+}
+@media screen and (max-width: 575px) {
+  .about__image {
+    display: none;
+  }
+  .about__text {
+    width: 100%;
+  }
 }
