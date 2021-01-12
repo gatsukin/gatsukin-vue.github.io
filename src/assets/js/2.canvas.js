@@ -73,7 +73,9 @@ function floatySpace() {
 floatySpace();
 
 window.addEventListener('resize', function () {
-  space.removeAll();
-  floatySpace();
+  var elem = document.getElementById("canvas");
 
+  space.removeAll();
+  elem.parentNode.removeChild(elem);
+  this.floatySpace();
 })
