@@ -11,7 +11,7 @@ const {
 
 const buildJs = () => {
   return gulp.src(dirs.src.js)
-    .pipe(concat('script.min.js'))
+    // .pipe(concat('script.min.js'))
     .pipe(gulpIf(argv.prod, babel({
       presets: ['@babel/preset-env']
     })))
@@ -24,7 +24,9 @@ const buildJs = () => {
       mangle: false
     })))
     .pipe(gulp.dest(dirs.dist.js))
-    .pipe(browserSync.reload({stream: true}))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 }
 
 exports.buildJs = buildJs

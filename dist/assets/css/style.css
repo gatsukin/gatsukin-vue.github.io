@@ -22,6 +22,10 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 * {
   scrollbar-color: #E4445A #272D41;
@@ -90,19 +94,6 @@ html {
   min-height: calc(var(--vh, 1vh) * 100);
   max-height: calc(var(--vh, 1vh) * 100);
   background-image: url(/assets/img/background/w-bg-m.png );
-  background-size: cover;
-}
-.main::before {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-  transform-origin: bottom;
-  animation: skySpin 20s infinite;
-  background-image: url(/assets/img/background/w-bg-sky.jpg);
   background-size: cover;
 }
 .main .overflow {
@@ -707,53 +698,9 @@ nav svg {
 .welcome__help.visible {
   opacity: 1;
 }
-.welcome__thanks {
-  visibility: hidden;
-  padding: 5px 10px;
-  transition: 0.3s;
-  opacity: 0;
-  color: inherit;
-  border-radius: 5px;
-  background-color: var(--bg);
-  font-size: 1rem;
-}
-.welcome__thanks:hover,
-.welcome__thanks:focus {
-  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.5);
-}
-.welcome__thanks:active {
-  transform: scale(0.97);
-}
-.welcome__thanks.visible {
-  visibility: visible;
-  opacity: 1;
-}
-.about {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 1000px;
-  padding: 20px;
-}
-.about::before {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-  opacity: 0.6;
-  border-radius: 10px;
-  background-color: var(--bg);
-}
-.about__text,
 .about__image {
   position: relative;
   z-index: 3;
-}
-.about__image {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -762,24 +709,12 @@ nav svg {
 .about__image img {
   width: 100%;
 }
-.about__text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.about .text {
   width: 65%;
-}
-.about__text h2 {
-  margin-bottom: 20px;
-  text-align: center;
-  font: 1.5rem/105% "Roboto-Bold";
-  font-weight: normal;
-}
-.about__text p {
-  font-size: 1rem;
 }
 @media screen and (max-width: 768px) {
   .about__image,
-  .about__text {
+  .about .text {
     width: 49%;
   }
 }
@@ -790,20 +725,23 @@ nav svg {
   .about__image {
     width: 100%;
   }
-  .about__text {
+  .about .text {
     width: 100%;
   }
 }
-.thanks {
+.canvas {
+  position: fixed;
+  width: 100vw;
+  height: calc(var(--vh, 1vh) * 100);
+}
+.common {
   position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  max-width: 500px;
+  max-width: 1000px;
   padding: 20px;
 }
-.thanks::before {
+.common::before {
   position: absolute;
   z-index: 2;
   top: 0;
@@ -815,30 +753,24 @@ nav svg {
   border-radius: 10px;
   background-color: var(--bg);
 }
-.thanks__text,
-.thanks__image {
-  position: relative;
-  z-index: 3;
-  width: 100%;
+.common.row {
+  flex-direction: row;
 }
-.thanks__image svg {
-  display: block;
-  max-width: 70%;
-  margin: 0 auto;
+.common.column {
+  flex-direction: column;
 }
-.thanks__text {
+.text {
+  z-index: 5;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 30px;
-  text-align: center;
 }
-.thanks__text h2 {
+.text h2 {
   margin-bottom: 20px;
   text-align: center;
   font: 1.5rem/105% "Roboto-Bold";
   font-weight: normal;
 }
-.thanks__text p {
+.text p {
   font-size: 1rem;
 }

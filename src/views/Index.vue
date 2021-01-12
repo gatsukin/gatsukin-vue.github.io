@@ -1,14 +1,9 @@
 <template>
+  <div id="pt" class="canvas"></div>
   <section class="welcome">
     <div class="welcome__text animation">
       <span id="hello"></span>
     </div>
-    <div class="welcome__help" v-if="0">
-      <span>Please, fill name in settings for next step.</span>
-    </div>
-    <router-link to="/thanks" class="welcome__thanks">
-      Appreciation
-    </router-link>
   </section>
 </template>
 <script>
@@ -31,7 +26,7 @@ export default {
   },
   mounted() {
     this.startedUser();
-    this.emptyName();
+    // this.emptyName();
     this.helloUser(this.welcome);
   },
   methods: {
@@ -47,10 +42,10 @@ export default {
         this.welcome.prefix = "Mr.";
       }
     },
-    emptyName() {
-      var helpBlock = document.querySelector(".welcome__thanks");
-      setTimeout(() => helpBlock.classList.toggle("visible"), 3000);
-    },
+    // emptyName() {
+    //   var helpBlock = document.querySelector(".welcome__thanks");
+    //   setTimeout(() => helpBlock.classList.toggle("visible"), 3000);
+    // },
     helloUser(e) {
       let option = {
         strings: [`Hello, ${e.prefix} ${e.name}!`],

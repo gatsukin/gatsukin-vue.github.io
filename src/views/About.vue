@@ -1,9 +1,9 @@
 <template>
-  <div class="about">
+  <div class="common row about">
     <div class="about__image">
       <img src="/assets/img/temp/photo.png" alt="" />
     </div>
-    <div class="about__text">
+    <div class="text">
       <h2>Обо мне</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget leo
