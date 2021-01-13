@@ -18,7 +18,9 @@ const buildLess = () => {
     .pipe(gulpIf(argv.dev, sourcemaps.init({
       loadMaps: true
     })))
-    .pipe(less())
+    .pipe(less({
+      javascriptEnabled: true
+    }))
     .pipe(concat('style.css'))
     .pipe(gulpIf(argv.prod, postcss([
       autoprefixer(),

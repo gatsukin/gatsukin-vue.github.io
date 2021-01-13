@@ -70,8 +70,11 @@ html {
     height: 100%;
     min-height: calc(var(--vh, 1vh) * 100);
     max-height: calc(var(--vh, 1vh) * 100);
-    background-image: url(/assets/img/background/w-bg-m.png );
-    background-size: cover;
+    // background-image: url(/assets/img/background/w-bg-m.png );
+    // background-repeat: no-repeat;
+    // background-position: bottom;
+    // background-size: cover;
+    // background-size: contain;
     // &::before {
     //     position: absolute;
     //     z-index: -1;
@@ -92,3 +95,16 @@ html {
         padding: 20px 20px;
     }
 }
+
+/* Mixin to generate random number;
+   int should be 0 or 1, 1 being to make it an integer 
+*/
+.makeRandom(@min: 0, @max: @min+1, @int: 0) { 
+    .checkInt() {
+      @getNum: `Math.random() * (@{max} - @{min} + @{int})`;
+      @base: unit(`@{int} == 1 ? Math.floor(@{getNum}) : @{getNum}`);
+    }
+    .checkInt();
+    @randNum: @base + @min;
+  }
+  .makeRandom();

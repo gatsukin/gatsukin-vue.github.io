@@ -71,11 +71,13 @@ function floatySpace() {
 }
 
 floatySpace();
-
-window.addEventListener('resize', function () {
-  var elem = document.getElementById("canvas");
-
-  space.removeAll();
-  elem.parentNode.removeChild(elem);
-  this.floatySpace();
-})
+let events = ['resize', 'load']
+for (let i = 0; i < events.length; i++) {
+  window.addEventListener(events[i], function () {
+    console.log(events[i])
+    var elem = document.getElementById("canvas")
+    space.removeAll();
+    elem.parentNode.removeChild(elem);
+    this.floatySpace();
+  })
+}
