@@ -1,5 +1,5 @@
 <template>
-  <div class="background"></div>
+  <div id="parallax" class="background"></div>
   <div id="particles"></div>
   <div class="foreground"></div>
   <div class="main">
@@ -56,6 +56,22 @@ export default {
         particles.push(Particle);
         particleContainer.innerHTML += Particle.html;
       }
+
+      function parallax() {
+        var body = document.body,
+          bg = document.getElementById("parallax"),
+          startX = 50,
+          startY = 80,
+          w = document.documentElement.offsetWidth,
+          h = document.documentElement.offsetHeight;
+        body.addEventListener("mousemove", function(evt) {
+          var posX = Math.round((evt.clientX / w) * startX);
+          var posY = Math.round((evt.clientY / h) * startY);
+          bg.style.backgroundPosition = posX + "% " + posY + "%";
+        });
+      }
+
+      parallax();
 
       // Hope you liked it and that has inspired you to create something awesome
     },
