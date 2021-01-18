@@ -1,5 +1,5 @@
 // Colour Variables
-@magenta : #a42b52;
+@magenta : #4f729b;
 @blue : #224154;
 
 each(range(100), {
@@ -29,14 +29,15 @@ each(range(100), {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/assets/img/background/my-illustration-background.png');
-    // background-position: center bottom;
+    background-image: url('/assets/img/background/back.jpg');
+    background-position: 50% 10%;
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 0;
-    transition: .3s
+    // transition: .2s
 }
 #particles {
+    overflow: hidden;
     position: absolute;
     top:0;
     right:0;
@@ -48,11 +49,11 @@ each(range(100), {
     span {
         display: inline-block;
         position: absolute;
-        bottom: 0%;
+        bottom: -10%;
         border-radius: 50%;
-        background-color: @magenta;
+        background-color: rgba(@magenta, 50%);
         opacity: 1;
-        box-shadow: 0px 0px 10px 5px rgba(164, 43, 82, 1);
+        box-shadow: 0px 0px 10px 5px rgba(@magenta, 30%);
         transform: translateX(0%) translateY(0%);
         animation-iteration-count: infinite;
         animation-timing-function: linear;

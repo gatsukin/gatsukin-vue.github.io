@@ -1,7 +1,6 @@
 <template>
-  <div id="pt" class="canvas"></div>
   <section class="welcome">
-    <div class="welcome__text animation">
+    <div class="welcome__text animation bg">
       <span id="hello"></span>
     </div>
   </section>

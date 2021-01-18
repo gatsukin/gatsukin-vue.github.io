@@ -1,7 +1,7 @@
 <template>
   <div id="parallax" class="background"></div>
   <div id="particles"></div>
-  <div class="foreground"></div>
+  <!-- <div class="foreground"></div> -->
   <div class="main">
     <div class="overflow">
       <!-- <transition name="bounce"> -->
@@ -33,21 +33,11 @@ export default {
         this.id = i;
         this.width = rand(1, 20) + "px";
         this.height = this.width;
-        this.x = rand(10, 90) + "%";
-        this.delay = rand(1, 60) + "s";
+        this.x = rand(0, 100) + "%";
+        this.delay = rand(5, 3000) + "ms";
         this.duration = rand(10, 60) + "s";
-        this.html =
-          '<span style=" width: ' +
-          this.width +
-          "; height: " +
-          this.height +
-          "; left: " +
-          this.x +
-          "; animation-delay: " +
-          this.duration +
-          "; animation-duration: " +
-          this.duration +
-          '; "></span>';
+
+        this.html = `<span style="width: ${this.width};  height: ${this.height}; left: ${this.x}; animation-delay: ${this.delay}; animation-duration: ${this.duration};">`;
       }
 
       // Let's loop through till we reach the max number of particles and save them to the array and append them to the document
@@ -65,8 +55,8 @@ export default {
           w = document.documentElement.offsetWidth,
           h = document.documentElement.offsetHeight;
         body.addEventListener("mousemove", function(evt) {
-          var posX = Math.round((evt.clientX / w) * startX);
-          var posY = Math.round((evt.clientY / h) * startY);
+          var posX = 40 + (evt.clientX / w) * 0.4 * startX;
+          var posY = 5 + (evt.clientY / h) * 0.15 * startY;
           bg.style.backgroundPosition = posX + "% " + posY + "%";
         });
       }
