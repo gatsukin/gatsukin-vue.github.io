@@ -1,0 +1,73 @@
+/////////////////
+// Font Family //
+/////////////////
+
+@dirGlobal: "/assets/fonts/";
+@srcDirFonts: "@{dirGlobal}"; // глобальная директория хранения всех шрифтов
+
+// Начертания шрифтов
+@FontWeightRegular: "Regular";
+@FontWeightBold: "Bold";
+@FontWeightExtraBold: "ExtraBold";
+@FontWeightSemiBold: "SemiBold";
+@FontWeightBoldItalic: "BoldItalic";
+@FontWeightBlack: "Black";
+@FontWeightLight: "Light";
+@FontWeightExtraLight: "ExtraLight";
+@FontWeightMedium: "Medium";
+@FontWeightMediumItalic: "MediumItalic";
+@FontWeightItalic: "Italic";
+@FontWeightThin: "Thin";
+@FontWeightLightItalic: "LightItalic";
+
+/////////////
+// Roboto //
+///////////
+@FFR: "Roboto";
+// Полные итоговые имена нужных шрифтов шрифта
+@FFRRegular: "@{FFR}-@{FontWeightRegular}";
+@FFRBold: "@{FFR}-@{FontWeightBold}";
+@FFRLight: "@{FFR}-@{FontWeightLight}";
+@FFRMedium: "@{FFR}-@{FontWeightMedium}";
+@FFRMediumItalic: "@{FFR}-@{FontWeightMediumItalic}";
+@FFRItalic: "@{FFR}-@{FontWeightItalic}";
+@FFRThin: "@{FFR}-@{FontWeightThin}";
+@FFRLightItalic: "@{FFR}-@{FontWeightLightItalic}";
+
+
+.FontDisplaySwap(@isFDS) when (@isFDS =true) {
+    font-display: swap;
+}
+
+.srcFontsGlobal(@dirFamyli, @FontFamyli) {
+    src: url("@{srcDirFonts}@{dirFamyli}/@{FontFamyli}/@{FontFamyli}");
+}
+
+// Variables:
+//    @Famyli:    type 'string' - принимает семейство шрифта (необходимо передевать параметр)
+//    @FontStyle: type 'string' - принимает необходимое начертание шрифта (необходимо передевать параметр)
+//    @srcFonts:  type 'string' - принимает глобальный путь расположения шрифтов
+.fonts(@Famyli, @FontStyle, @srcFonts: "@{srcDirFonts}") {
+    @font-face {
+        font-family: "@{Famyli}-@{FontStyle}";
+        src: local("@{Famyli} @{FontStyle}");
+        src: url("@{srcDirFonts}@{Famyli}/@{Famyli}-@{FontStyle}/@{Famyli}-@{FontStyle}.eot");
+        src: url("@{srcDirFonts}@{Famyli}/@{Famyli}-@{FontStyle}/@{Famyli}-@{FontStyle}.eot?#iefix") format("embedded-opentype"),
+        url("@{srcDirFonts}@{Famyli}/@{Famyli}-@{FontStyle}/@{Famyli}-@{FontStyle}.woff2") format("woff2"),
+        url("@{srcDirFonts}@{Famyli}/@{Famyli}-@{FontStyle}/@{Famyli}-@{FontStyle}.woff") format("woff"),
+        url("@{srcDirFonts}@{Famyli}/@{Famyli}-@{FontStyle}/@{Famyli}-@{FontStyle}.ttf") format("truetype"),
+        url("@{srcDirFonts}@{Famyli}/@{Famyli}-@{FontStyle}/@{Famyli}-@{FontStyle}.svg") format("svg");
+        .FontDisplaySwap(true);
+    }
+}
+
+// Задаем шрифты по миксину
+// ROBOTO
+.fonts(@FFR, @FontWeightRegular);
+.fonts(@FFR, @FontWeightBold);
+.fonts(@FFR, @FontWeightLight);
+.fonts(@FFR, @FontWeightMedium);
+.fonts(@FFR, @FontWeightMediumItalic);
+.fonts(@FFR, @FontWeightItalic);
+.fonts(@FFR, @FontWeightThin);
+.fonts(@FFR, @FontWeightLightItalic);

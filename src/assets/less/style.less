@@ -1,0 +1,62 @@
+@import "var/fonts";
+
+*, *::after, *::before {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    font-family: @FFRRegular;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 20px;
+    font-family: @FFRMedium;
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+b {
+    font-family: @FFRMedium;
+    font-weight: normal;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+
+    > .column {
+        width: 50%;
+    }
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.category {
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.list {
+    margin-bottom: 30px;
+
+    .item {
+        display: flex;
+        align-items: center;
+
+        &__name {
+            margin: 0 10px;
+            font: 18px/115% @FFRRegular;
+        }
+
+        &__price {
+            color: green;
+            font: 14px/115% @FFRRegular;
+        }
+    }
+}
