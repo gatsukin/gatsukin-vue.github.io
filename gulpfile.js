@@ -24,7 +24,9 @@ const {
 const {
   buildImg
 } = require('./tasks/build-img.js')
-
+const {
+  buildVendorCss
+} = require('./tasks/build-vendor-css.js')
 const {
   dirDist,
   dirs,
@@ -35,6 +37,7 @@ const stakeOut = () => {
   watch(dirs.watch.index, buildHtml).on('change', browserSync.reload)
   watch(dirs.watch.html, buildHtml).on('change', browserSync.reload)
   watch(dirs.watch.template, buildHtml).on('change', browserSync.reload)
+  watch(dirs.watch.cssVendor, buildVendorCss).on('change', browserSync.reload)
   watch(dirs.watch.less, buildLess).on('change', browserSync.reload)
   watch(dirs.watch.img, buildImg).on('change', browserSync.reload)
   watch(dirs.watch.js, buildJs).on('change', browserSync.reload)
@@ -56,7 +59,8 @@ const buildAssets = series(
     buildFonts,
     buildImg,
     buildLess,
-    buildJs
+    buildJs,
+    buildVendorCss,
   )
 )
 const buildAssetsProd = series(

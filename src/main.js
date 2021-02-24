@@ -1,30 +1,26 @@
 // Импортируем основное и плагины
-import {
-  createApp
-} from 'vue'
+import Vue from "vue"
 import App from "./App.vue"
 // import router from './router'
 
 // Импорт компонентов
 import MainPage from './views/MainPage'
-import DesignView from './views/DesignView.vue'
-import FrontView from './views/FrontView.vue'
-import BackView from './views/BackView.vue'
-import GeneralView from './views/GeneralView.vue'
-import ListComponent from './components/ListComponent.vue'
-const app = createApp(App)
-
+import vDesign from './components/vDesign.vue'
+import vFront from './components/vFront.vue'
+import vBack from './components/vBack.vue'
+import сRadioList from './components/сRadioList.vue'
 
 // Регистрируем компоненты
-app.component('main-page', MainPage)
-app.component('general-view', GeneralView)
-app.component('design-view', DesignView)
-app.component('front-view', FrontView)
-app.component('back-view', BackView)
-app.component('list-component', ListComponent)
+Vue.component('main-page', MainPage)
+Vue.component('design-view', vDesign)
+Vue.component('front-view', vFront)
+Vue.component('back-view', vBack)
+Vue.component('radio-list-component', сRadioList)
 // Даем добро на использовании VUE DEVTOOLS
-app.config.devtools = true
+// app.config.devtools = true
 
 // Заключительный этап
 // app.use(router).mount('#app')
-app.mount('#app')
+new Vue({
+  render: h => h(App),
+}).$mount('#app')

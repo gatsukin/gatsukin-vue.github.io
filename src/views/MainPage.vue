@@ -1,10 +1,11 @@
 <template>
-  <div class="row">
+  <div class="d-flex flex-column col-md-8">
     <div class="column">
-      <general-view @emitElemValue="generalPrice" />
-      <design-view />
-      <front-view />
-      <back-view />
+      <form>
+        <design-view v-if="0" @updateSumPrice="generalPrice" />
+        <front-view v-if="0" />
+        <back-view @updateSumPrice="generalPrice" />
+      </form>
     </div>
     <div class="column">Итого: {{ this.sitePrice }}</div>
   </div>
@@ -22,7 +23,7 @@ export default {
   mounted() {},
   methods: {
     generalPrice(data) {
-      this.sitePrice = +data;
+      this.sitePrice = data;
     },
   },
 };

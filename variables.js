@@ -56,7 +56,7 @@ const dirs = {
     js: [
       `${dirSrc}${dirAssets}${dirJs}/*.js`,
     ],
-    vendorStyle: `${dirSrc}${dirAssets}${dirCss}/**/*.js`,
+    vendorStyle: `${dirSrc}${dirAssets}${dirCss}/**/*.css`,
     vendorJs: [
       `${dirSrc}${dirAssets}${dirJs}${dirLib}/**/*.js`
     ]
